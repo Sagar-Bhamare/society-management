@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuraLiva - Society Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes fadeInFast {
+          from { opacity: 0; transform: translateY(-5px); }
+          to { opacity: 1; transform: translateY(0); }
+      }
+      body {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+    </style>
+    <script>
+      // Apply theme from local storage or system preference to prevent FOUC
+      if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    </script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            },
+            colors: {
+              primary: '#6366f1',
+              secondary: '#f59e0b',
+              background: '#f8fafc',
+              surface: '#ffffff',
+              'text-primary': '#1e293b',
+              'text-secondary': '#64748b',
+              success: '#10b981',
+              error: '#ef4444',
+            },
+            animation: {
+              'fade-in-fast': 'fadeInFast 0.2s ease-out',
+            },
+            keyframes: {
+              fadeInFast: {
+                '0%': { opacity: '0', transform: 'translateY(-5px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script type="importmap">
+{
+  "imports": {
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.553.0",
+    "react-hot-toast": "https://aistudiocdn.com/react-hot-toast@^2.6.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-background dark:bg-slate-900 text-text-primary dark:text-slate-200">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "AuraLiva - Premium Society Management System",
+  "description": "A modern, luxurious, and intuitive management system for residential complexes, designed to evoke feelings of security, community, and elegance.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
